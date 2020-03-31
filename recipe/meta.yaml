@@ -18,14 +18,19 @@ requirements:
   host:
     - python
     - pip
+    - pytest-runner
   run:
     - ecdsa <1.0
+    - cryptography
     - future <1.0
-    - pycryptodome >=3.3.1
     - python
     - six <2.0
 
 test:
+  files:
+    - usage.py
+  commands:
+    - python usage.py
   imports:
     - jose
     - jose.backends
@@ -36,7 +41,7 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: JOSE implementation in Python
-  doc_url: https://github.com/mpdavis/python-jose
+  doc_url: https://python-jose.readthedocs.io
   dev_url: https://github.com/mpdavis/python-jose
 
 extra:
