@@ -23,7 +23,6 @@ requirements:
     - cryptography
     - future <1.0
     - python
-    - rsa
     - six <2.0
 
 test:
