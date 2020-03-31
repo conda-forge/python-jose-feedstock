@@ -1,3 +1,5 @@
 from jose import jwt
-token = jwt.encode({'key': 'value'}, 'secret', algorithm='HS256')
-jwt.decode(token, 'secret', algorithms=['HS256'])
+msg = {'key': 'value'}
+token = jwt.encode(msg, 'secret', algorithm='HS256')
+decoded_msg = jwt.decode(token, 'secret', algorithms=['HS256'])
+assert msg == decoded_msg
