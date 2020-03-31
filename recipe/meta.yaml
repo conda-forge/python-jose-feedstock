@@ -1,5 +1,5 @@
 {% set name = "python-jose" %}
-{% set version = "3.0.1" %}
+{% set version = "3.1.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ed7387f0f9af2ea0ddc441d83a6eb47a5909bd0c8a72ac3250e75afec2cc1371
+  sha256: 8484b7fdb6962e9d242cce7680469ecf92bda95d10bbcbbeb560cacdff3abfce
 
 build:
   number: 0
@@ -20,7 +20,6 @@ requirements:
     - pip
     - pytest-runner
   run:
-    - ecdsa <1.0
     - cryptography
     - future <1.0
     - python
@@ -29,8 +28,13 @@ requirements:
 test:
   files:
     - usage.py
+  source_files:
+    - tests
   commands:
     - python usage.py
+    - pytest -m "not (pycryptodome or pycrypto or backend_compatibility)" tests
+  requires:
+    - pytest
   imports:
     - jose
     - jose.backends
