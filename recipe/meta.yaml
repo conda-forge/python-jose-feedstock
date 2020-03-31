@@ -20,8 +20,8 @@ requirements:
     - pip
   run:
     - ecdsa <1.0
+    - cryptography
     - future <1.0
-    - pycryptodome >=3.3.1
     - python
     - six <2.0
 
@@ -36,7 +36,7 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: JOSE implementation in Python
-  doc_url: https://github.com/mpdavis/python-jose
+  doc_url: https://python-jose.readthedocs.io
   dev_url: https://github.com/mpdavis/python-jose
 
 extra:
