@@ -5,7 +5,7 @@ Home: http://github.com/mpdavis/python-jose
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: JOSE implementation in Python
 
