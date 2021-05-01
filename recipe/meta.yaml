@@ -1,5 +1,5 @@
 {% set name = "python-jose" %}
-{% set version = "3.1.0" %}
+{% set version = "3.2.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8484b7fdb6962e9d242cce7680469ecf92bda95d10bbcbbeb560cacdff3abfce
+  sha256: 4e4192402e100b5fb09de5a8ea6bcc39c36ad4526341c123d401e2561720335b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv "
 
