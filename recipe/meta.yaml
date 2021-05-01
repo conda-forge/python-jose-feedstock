@@ -24,7 +24,7 @@ requirements:
     - future <1.0
     - python >=3.6
     - six <2.0
-    - ecdsa
+    # - ecdsa
     - pyasn1
     - rsa
 
