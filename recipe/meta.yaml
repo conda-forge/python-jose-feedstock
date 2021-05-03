@@ -16,13 +16,13 @@ build:
 
 requirements:
   host:
-    - python
+    - python =2.7|>=3.5,<4
     - pip
     - pytest-runner
   run:
     - cryptography
     - future <1.0
-    - python
+    - python =2.7|>=3.5,<4
     - six <2.0
 
 test:
