@@ -12,17 +12,17 @@ source:
 build:
   number: 0
   noarch: python
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv '
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv'
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
     - pytest-runner
   run:
     - cryptography
     - future <1.0
-    - python
+    - python >=3.6
     - six <2.0
 
 test:
@@ -51,3 +51,5 @@ about:
 extra:
   recipe-maintainers:
     - mariusvniekerk
+    - dgasmith
+    - swainn
