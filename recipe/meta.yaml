@@ -1,18 +1,19 @@
 {% set name = "python-jose" %}
 {% set version = "3.3.0" %}
 
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python-jose-{{ version }}.tar.gz
   sha256: 55779b5e6ad599c6336191246e95eb2293a9ddebd555f796a65f838f07e5d78a
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -21,9 +22,11 @@ requirements:
     - pytest-runner
   run:
     - cryptography
-    - future <1.0
     - python >=3.6
-    - six <2.0
+    - ecdsa !=0.15
+    - pyasn1
+    - python
+    - rsa
 
 test:
   files:
@@ -31,9 +34,11 @@ test:
   source_files:
     - tests
   commands:
+    - pip check
     - python usage.py
     - pytest -m "not (pycryptodome or pycrypto or backend_compatibility)" tests
   requires:
+    - pip
     - pytest
   imports:
     - jose
