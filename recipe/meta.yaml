@@ -22,11 +22,10 @@ requirements:
     - setuptools
     - pytest-runner
   run:
-    - cryptography
     - python >={{ python_min }}
+    - cryptography
     - ecdsa !=0.15
     - pyasn1
-    - python >={{ python_min }}
     - rsa
 
 test:
