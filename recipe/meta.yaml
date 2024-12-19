@@ -7,25 +7,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/python-jose-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python-jose-{{ version }}.tar.gz
   sha256: 55779b5e6ad599c6336191246e95eb2293a9ddebd555f796a65f838f07e5d78a
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
+    - setuptools
     - pytest-runner
   run:
+    - python >={{ python_min }}
     - cryptography
-    - python >=3.6
     - ecdsa !=0.15
     - pyasn1
-    - python
     - rsa
 
 test:
@@ -40,6 +40,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
   imports:
     - jose
     - jose.backends
