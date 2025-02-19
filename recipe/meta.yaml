@@ -1,5 +1,5 @@
 {% set name = "python-jose" %}
-{% set version = "3.3.0" %}
+{% set version = "3.4.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python-jose-{{ version }}.tar.gz
-  sha256: 55779b5e6ad599c6336191246e95eb2293a9ddebd555f796a65f838f07e5d78a
+  sha256: 9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -23,10 +23,10 @@ requirements:
     - pytest-runner
   run:
     - python >={{ python_min }}
-    - cryptography
+    - cryptography >=3.4.0
     - ecdsa !=0.15
-    - pyasn1
-    - rsa
+    - rsa >=4.0, <5.0, !=4.4, !=4.1.1
+    - pyasn1 >=0.4.1, <0.5.0
 
 test:
   files:
