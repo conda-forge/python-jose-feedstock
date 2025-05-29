@@ -1,5 +1,5 @@
 {% set name = "python-jose" %}
-{% set version = "3.4.0" %}
+{% set version = "3.5.0" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python-jose-{{ version }}.tar.gz
-  sha256: 9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: fb4eaa44dbeb1c26dcc69e4bd7ec54a1cb8dd64d3b4d81ef08d90ff453f2b01b
 
 build:
   number: 0
@@ -25,8 +25,8 @@ requirements:
     - python >={{ python_min }}
     - cryptography >=3.4.0
     - ecdsa !=0.15
-    - rsa >=4.0, <5.0, !=4.4, !=4.1.1
-    - pyasn1 >=0.4.1, <0.5.0
+    - rsa >=4.0,<5.0,!=4.4,!=4.1.1
+    - pyasn1 >=0.5.0
 
 test:
   files:
